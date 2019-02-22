@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="customer_feedback_wizard_form_view" model="ir.ui.view">
+        <field name="name">Customer Feedback Report Wizard</field>
+        <field name="model">customer.feedback.report.wizard</field>
+        <field name="arch" type="xml">
+        <form string="Customer Feedback Report">
+            <group>
+                <group>
+                    <field name="customer_id" />
+                </group>
+            </group>
+            <footer>
+                <button name="print_report" string="Print" type="object" class="btn-primary"/>
+                <button string="Cancel" special="cancel" class="btn-secondary"/>
+            </footer>
+        </form>
+        </field>
+    </record>
+
+    <act_window id="action_customer_feedback_report"
+                name="Customer Feedback Report"
+                src_model="customer.feedback"
+                res_model="customer.feedback.report.wizard"
+                view_mode="form"
+                target="new"
+                key2="client_action_multi"/>
+
+    <menuitem id="main_report_menu" parent="customer_feedback.main_customer_feedback_menu" name="Reports" sequence="60"/>
+    <menuitem
+            id="menu_customer_feedback_report"
+            name="Customer Feedback Report"
+            action="action_customer_feedback_report"
+            parent="main_report_menu"/>
+
+</odoo>
