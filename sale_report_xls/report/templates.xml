@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <report id="sale_xls_report"
+          model="sale.xls.wizard"
+          string="Sale Report XLS"
+          report_type="xlsx"
+          name="sale_report_xls.sale_xls_report_template"
+          file="sale_report_xls_wizard"
+          attachment_use="false"/>
+</odoo>
