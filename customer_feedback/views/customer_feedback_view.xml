@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="customer_feedback_form_view" model="ir.ui.view">
+        <field name="name">Customer Feedback Form</field>
+        <field name="model">customer.feedback</field>
+        <field name="arch" type="xml">
+            <form string="Customer Feedback Form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="feedback_type"/>
+                        </group>
+                        <group>
+                            <field name="rating"/>
+                        </group></group>
+                    <group>
+                        <field name="customer_description" placeholder="Description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id ="customer_feedback_tree_view" model="ir.ui.view">
+        <field name="name">Customer Feedback Tree</field>
+        <field name="model">customer.feedback</field>
+        <field name="arch" type ="xml">
+            <tree>
+                <field name="customer_id"/>
+                <field name="feedback_type"/>
+                <field name="rating"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_customer_feedback" model="ir.actions.act_window">
+        <field name="name">Customer Feedback</field>
+        <field name="res_model">customer.feedback</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_non_content_smiling_face">
+                Create records of your customer feedback
+            </p>
+        </field>
+    </record>
+
+    <record id="action_feedback_type" model="ir.actions.act_window">
+        <field name="name">Feedback Types</field>
+        <field name="res_model">feedback.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_non_content_smiling_face">
+                You can add new feedback type here
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="main_customer_feedback_menu" name="Feedback"/>
+    <menuitem id="customer_feedback_menu" parent="main_customer_feedback_menu" name="Feedback" sequence="30"/>
+    <menuitem id="customer_feedback_details_menu"
+              parent="customer_feedback_menu"
+              name="Customer Feedback"
+              action="action_customer_feedback"
+              sequence="10"/>
+    <menuitem id="feedback_type_menu"
+              parent="customer_feedback_menu"
+              name="Feedback Type"
+              action="action_feedback_type"
+              sequence="20"/>
+</odoo>
