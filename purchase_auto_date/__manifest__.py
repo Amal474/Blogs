@@ -13,6 +13,9 @@
     # any module necessary for this one to work correctly
     'depends': ['base_automation', 'purchase'],
     'data': [
+        'data/data_server_action.xml',
+        'data/base_automation.xml',
+        'views/purchase_order_views.xml',
     ],
-    'application': True,
+    'application': False,
 }
